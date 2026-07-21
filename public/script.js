@@ -1,29 +1,32 @@
 document.getElementById("form").addEventListener("submit", async function(e) {
     e.preventDefault();
 
-    window.location.href = "/admin.html";
+     document.getElementById("message").innerText = "";
 
 const data = {
         customer_name: document.getElementById("name").value,
         service_requested: document.getElementById("service").value,
         date_time: document.getElementById("time").value,
     };
-
+    try{
     const res = await fetch("http://localhost:5000/api/appointments", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
-        body:JSON.stringify(data),
-        });
+        body: JSON.stringify(data),
+    });
 
         const result = await res.json();
 
         if (res.ok) {
-            document.getElementById("message").innerText =
-              "Appointment booked successfully!";
+            document.getElementById("message").innerText = "Appointment booked successfuly!";
+            e.target.reset();
         } else {
-            document.getElementById("message").innerText =
-              "Something went wrong!";
+            document.getElementById("message").innerText = "Something went wrong.";
         }
+      } catch (err) {
+        document.getElementById("message").innerText = "Could not reach the server.";
+        console.error(err);
+      }
     });
