@@ -18,22 +18,6 @@ app.get("/", (req, res) => {
     res.send("Salon Booking API Running");
 });
 
-//APPOINTMENT ENDPOINTS
-let appointments = [];
-
-app.post("/api/appointments", (req, res) => {
-    const appointment = req.body;
-    appointments.push(req.body);
-
-    res.json({
-        message: "Appointment saved successfully"
-    });
-});
-
-app.get("/api/appointments", (req, res) => {
-    res.json(appointments);
-});
-
 //SERVER
 const PORT = 5000;
 
