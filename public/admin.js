@@ -4,7 +4,7 @@ async function loadAppointments() {
   const container = document.getElementById("appointments");
 
   try {
-    const res = await fetch("http://localhost:5000/api/appointments");
+    const res = await fetch("https://salon-backend-x518.onrender.com/api/appointments");
     const data = await res.json();
 
     container.innerHTML = "";
