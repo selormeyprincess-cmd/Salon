@@ -9,7 +9,7 @@ const data = {
         date_time: document.getElementById("time").value,
     };
     try{
-    const res = await fetch("https://salon-backend-x518.onrender.com/api/appointments", {
+    const res = await fetch("https://salon-backend-x5l8.onrender.com/api/appointments", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
