@@ -1,4 +1,13 @@
-/*const express = require("express");
+const express = require("express");
+const router = express.Router();
+const db = require("../db");
+
+//Define your appointment routes here
+router.get("/", (req, res) => {
+    res.json({ message: "Appointments route working"});
+});
+
+const express = require("express");
 const router = express.Router();
 const db = require("../db");
 
